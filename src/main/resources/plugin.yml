@@ -1,0 +1,6 @@
+author: Noisier
+name: ${project.artifactId}
+version: ${project.version}
+depend: [FancyCore]
+
+main: ${main-bukkit}
