@@ -6,8 +6,10 @@ whitelist:
 
 unregister-commands:
   - '?'
-  - 'about'
   - 'help'
+  - 'rl'
+  - 'reload'
+  - 'about'
   - 'pl'
   - 'plugins'
   - 'ver'
