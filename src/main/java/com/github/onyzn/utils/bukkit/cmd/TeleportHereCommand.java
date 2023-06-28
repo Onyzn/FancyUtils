@@ -17,6 +17,11 @@ public class TeleportHereCommand extends Commands {
       return;
     }
 
+    if (!sender.hasPermission("fancyutils.cmd.teleporthere")) {
+      sender.sendMessage("§cVocê não possui permissão para utilizar este comando.");
+      return;
+    }
+
     if (args.length == 0) {
       sender.sendMessage("§cUtilize /" + label + " [jogador]");
       return;

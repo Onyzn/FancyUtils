@@ -24,6 +24,11 @@ public class TeleportCommand extends Commands {
       return;
     }
 
+    if (!sender.hasPermission("fancyutils.cmd.teleport")) {
+      sender.sendMessage("§cVocê não possui permissão para utilizar este comando.");
+      return;
+    }
+
     Player player = (Player) sender;
 
     if (args.length == 0 || args.length == 2) {
