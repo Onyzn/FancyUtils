@@ -30,6 +30,9 @@ public abstract class Commands extends Command {
     new StaffChatCommand();
     new UpCommand();
     new WhitelistCommand();
+    new GamemodeCommand();
+    new TeleportCommand();
+    new TeleportHereCommand();
   }
 
   public abstract void perform(CommandSender sender, String label, String[] args);
