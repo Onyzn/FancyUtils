@@ -1,12 +1,12 @@
 package com.github.onyzn.utils.bukkit.cmd;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
 import com.github.onyzn.utils.bukkit.cmd.whitelist.AddWhitelistCommand;
 import com.github.onyzn.utils.bukkit.cmd.whitelist.RemoveWhitelistCommand;
 import com.github.onyzn.utils.bukkit.cmd.whitelist.StatusWhitelistCommand;
 import com.github.onyzn.utils.bukkit.cmd.whitelist.ToggleWhitelistCommand;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -26,6 +26,11 @@ public class WhitelistCommand extends Commands {
 
   @Override
   public void perform(CommandSender sender, String label, String[] args) {
+    if (!sender.hasPermission("fancyutils.cmd.whitelist")) {
+      sender.sendMessage("§cVocê não possui permissão para utilizar este comando.");
+      return;
+    }
+
     if (args.length == 0) {
       this.sendHelp(sender, 1);
       return;
@@ -48,9 +53,9 @@ public class WhitelistCommand extends Commands {
           return;
         }
 
-        subCommand.perform((Player) sender, list.toArray(new String[list.size()]));
+        subCommand.perform((Player) sender, list.toArray(new String[0]));
       } else {
-        subCommand.perform(sender, list.toArray(new String[list.size()]));
+        subCommand.perform(sender, list.toArray(new String[0]));
       }
     }
   }

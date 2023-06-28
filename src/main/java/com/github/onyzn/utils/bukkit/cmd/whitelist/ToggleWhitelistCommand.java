@@ -17,7 +17,7 @@ public class ToggleWhitelistCommand extends SubCommand {
       sender.sendMessage("§eA whitelist foi ativada!");
 
       Bukkit.getOnlinePlayers().forEach(p -> {
-        if (Manager.whitelistedPlayers.stream().noneMatch(p.getName()::equalsIgnoreCase)) {
+        if (!Manager.isWhitelisted(p.getName())) {
           p.kickPlayer(Manager.WHITELIST_MESSAGE);
         }
       });

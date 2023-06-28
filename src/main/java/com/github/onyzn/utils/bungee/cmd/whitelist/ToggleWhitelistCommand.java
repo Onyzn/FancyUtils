@@ -18,7 +18,7 @@ public class ToggleWhitelistCommand extends SubCommand {
       sender.sendMessage(new TextComponent("§eA whitelist foi ativada!"));
 
       ProxyServer.getInstance().getPlayers().forEach(p -> {
-        if (Manager.whitelistedPlayers.stream().noneMatch(p.getName()::equalsIgnoreCase)) {
+        if (!Manager.isWhitelisted(p.getName())) {
           p.disconnect(new TextComponent(Manager.WHITELIST_MESSAGE));
         }
       });

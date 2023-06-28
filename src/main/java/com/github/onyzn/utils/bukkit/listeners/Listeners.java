@@ -57,8 +57,7 @@ public class Listeners implements Listener {
     }
 
     Player player = evt.getPlayer();
-
-    if (Manager.whitelistedPlayers.contains(player.getName().toLowerCase())) {
+    if (!Manager.isWhitelisted(player.getName())) {
       evt.disallow(PlayerLoginEvent.Result.KICK_BANNED, Manager.WHITELIST_MESSAGE);
     }
   }

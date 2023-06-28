@@ -23,6 +23,11 @@ public class WhitelistCommand extends Commands {
 
   @Override
   public void perform(CommandSender sender, String[] args) {
+    if (!sender.hasPermission("fancyutils.cmd.whitelist")) {
+      sender.sendMessage(new TextComponent("§cVocê não possui permissão para utilizar este comando."));
+      return;
+    }
+
     if (args.length == 0) {
       this.sendHelp(sender, 1);
       return;
@@ -45,9 +50,9 @@ public class WhitelistCommand extends Commands {
           return;
         }
 
-        subCommand.perform((ProxiedPlayer) sender, list.toArray(new String[list.size()]));
+        subCommand.perform((ProxiedPlayer) sender, list.toArray(new String[0]));
       } else {
-        subCommand.perform(sender, list.toArray(new String[list.size()]));
+        subCommand.perform(sender, list.toArray(new String[0]));
       }
     }
   }

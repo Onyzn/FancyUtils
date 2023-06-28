@@ -34,7 +34,7 @@ public class Listeners implements Listener {
 
     PendingConnection player = evt.getConnection();
 
-    if (Manager.whitelistedPlayers.contains(player.getName().toLowerCase())) {
+    if (!Manager.isWhitelisted(player.getName())) {
       evt.setCancelled(true);
       evt.setCancelReason(new TextComponent(Manager.WHITELIST_MESSAGE));
     }
