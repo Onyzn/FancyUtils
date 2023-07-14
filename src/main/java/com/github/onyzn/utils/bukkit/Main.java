@@ -4,6 +4,7 @@ import com.github.onyzn.utils.Manager;
 import com.github.onyzn.utils.bukkit.cmd.Commands;
 import com.github.onyzn.utils.bukkit.listeners.Listeners;
 import com.github.onyzn.utils.bukkit.objects.SlimePad;
+import com.github.onyzn.utils.bukkit.vanish.VanishManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.SimpleCommandMap;
@@ -34,6 +35,7 @@ public class Main extends NBukkit {
     Commands.setupCommands();
     Listeners.setupListeners();
     SlimePad.setupSlimePads();
+    VanishManager.setupManager();
     Manager.setupManager(this);
 
     // desativar comandos redundantes

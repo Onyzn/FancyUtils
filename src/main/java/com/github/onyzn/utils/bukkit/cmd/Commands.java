@@ -33,6 +33,7 @@ public abstract class Commands extends Command {
     new GamemodeCommand();
     new TeleportCommand();
     new TeleportHereCommand();
+    new VanishCommand();
   }
 
   public abstract void perform(CommandSender sender, String label, String[] args);

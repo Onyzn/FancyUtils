@@ -20,7 +20,7 @@ public class UpCommand extends Commands {
     }
 
     Player player = (Player) sender;
-    if (!player.hasPermission("fancyutils.up")) {
+    if (!player.hasPermission("fancyutils.cmd.up")) {
       player.sendMessage("§cVocê não possui permissão para utilizar este comando.");
       return;
     }
